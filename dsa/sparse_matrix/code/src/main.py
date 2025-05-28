@@ -36,6 +36,17 @@ def main():
         # Print the result matrix
         print(result)
 
+        # Ask user if they want to save the result
+        save = input("\nDo you want to save the result to a file? (yes/no): ").strip().lower()
+        if save == 'yes':
+            output_path = input("Enter the output file path (e.g. result.txt): ").strip()
+            try:
+                with open(output_path, 'w') as f:
+                    f.write(str(result))
+                print(f"Result saved to: {output_path}")
+            except Exception as e:
+                print("Failed to save the file:", e)
+
     except Exception as error:
         print("An error occurred:")
         print(error)
